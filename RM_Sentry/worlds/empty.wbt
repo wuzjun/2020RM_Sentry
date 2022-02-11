@@ -1,0 +1,1043 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  basicTimeStep 8
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.9331400134974649 0.3588163029341582 0.02237355489442048 0.13344455765471133
+  position 0.009245393911047506 1.345549665454858 3.409455138481034
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+Solid {
+  translation -5.932181483291374e-20 0.14911709999999995 -3.33
+  rotation -0.9980031167326769 0.06271761065030744 0.007502020139874723 -2.245061218611829e-16
+  children [
+    DEF BOX_1 Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.3 0.3 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE BOX_1
+  physics Physics {
+  }
+  recognitionColors [
+    0 1 1
+  ]
+}
+DEF Sentinel Robot {
+  translation 0.005315937277051822 1.1375177064418793 0.00026977896946668985
+  rotation -0.08566134111777121 0.9963240227366937 0.000759180925021694 -0.002319437303861909
+  children [
+    DEF Cloud Transform {
+      translation 0 -0.02 0
+      children [
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            position 109.45060287995682
+            axis 0 1 0
+          }
+          device [
+            RotationalMotor {
+              name "motor2"
+              maxVelocity 50
+            }
+          ]
+          endPoint Solid {
+            translation -1.4718263534311845e-10 -6.548912334869426e-06 2.553144320502436e-10
+            rotation 3.1334426959595646e-06 0.9999999999940224 1.4617141883710027e-06 0.018449664948327348
+            children [
+              DEF shoot Group {
+                children [
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      position 0.2642028129838447
+                      anchor -0.09 -0.11 0
+                    }
+                    device [
+                      RotationalMotor {
+                        name "motor3"
+                        maxVelocity 80
+                      }
+                    ]
+                    endPoint Solid {
+                      translation -0.0899999 -0.11 0
+                      rotation 0.13058969934183853 0.13058956619064938 -0.982798400297816 1.5881457027863104
+                      children [
+                        Transform {
+                          translation 0 0.09 0
+                          rotation 0 0 1 -1.5707953071795862
+                          children [
+                            Solid {
+                              rotation 1 0 0 -2.6179953071795863
+                              children [
+                                InertialUnit {
+                                  rotation 0 1 0 -1.5708003061004252
+                                  children [
+                                    Transform {
+                                      translation 0 0.01 0
+                                      rotation 0 1 0 -1.5708003061004252
+                                      children [
+                                        Shape {
+                                          appearance PBRAppearance {
+                                            baseColor 0 1 0
+                                          }
+                                          geometry Cylinder {
+                                            height 0.03
+                                            radius 0.02
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                  name "Cloud_imu"
+                                }
+                                DistanceSensor {
+                                  translation -4.07848e-08 0.01 0.22
+                                  rotation 0 1 0 -1.5707953071795862
+                                  children [
+                                    Transform {
+                                      rotation -0.577349935856137 0.577349935856137 0.5773509358560258 2.09439
+                                      children [
+                                        Shape {
+                                          appearance PBRAppearance {
+                                            baseColor 1 1 0
+                                            metalness 0
+                                          }
+                                          geometry Cylinder {
+                                            height 0.01
+                                            radius 0.01
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                  name "laser0"
+                                  lookupTable [
+                                    0 0 0
+                                    10 10 0
+                                  ]
+                                  type "laser"
+                                  aperture 0.005
+                                }
+                                Camera {
+                                  translation 0 0.01 0.21
+                                  rotation 0 1 0 3.14159
+                                  children [
+                                    Transform {
+                                      rotation 1 0 0 -1.5707953071795862
+                                      children [
+                                        Shape {
+                                          appearance PBRAppearance {
+                                            baseColor 1 1 0
+                                            metalness 0
+                                          }
+                                          geometry Cylinder {
+                                            height 0.04
+                                            radius 0.01
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                  name "camera1"
+                                  width 1280
+                                  height 800
+                                  recognition Recognition {
+                                    frameColor 0 1 0
+                                    frameThickness 3
+                                  }
+                                }
+                                Transform {
+                                  translation 0 -0.01 0.07
+                                  children [
+                                    Solid {
+                                      translation 0 0 0.06
+                                      children [
+                                        DEF barrel Shape {
+                                          appearance PBRAppearance {
+                                            baseColor 0.12549 0.12549 0.12549
+                                          }
+                                          geometry Box {
+                                            size 0.03 0.015 0.2
+                                          }
+                                        }
+                                      ]
+                                      name "solid(8)"
+                                      boundingObject USE barrel
+                                      physics Physics {
+                                      }
+                                    }
+                                  ]
+                                }
+                                DEF shoot_board Shape {
+                                  appearance PBRAppearance {
+                                    baseColor 0.12549 0.12549 0.12549
+                                  }
+                                  geometry Box {
+                                    size 0.17 0.01 0.1
+                                  }
+                                }
+                              ]
+                              name "solid(7)"
+                              boundingObject USE shoot_board
+                              physics Physics {
+                              }
+                            }
+                          ]
+                        }
+                        HingeJoint {
+                          jointParameters HingeJointParameters {
+                            position 30.859064340677616
+                            axis 0 1 0
+                            anchor 0 0.18 0
+                          }
+                          endPoint Solid {
+                            translation 0 0.18 0
+                            rotation 0 1 0 5.72632311195927
+                            children [
+                              DEF Cloud_false_Motor Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 0 0
+                                }
+                                geometry Cylinder {
+                                  height 0.02
+                                  radius 0.055
+                                }
+                              }
+                            ]
+                            name "solid(6)"
+                            boundingObject USE Cloud_false_Motor
+                            physics Physics {
+                            }
+                            linearVelocity -3.705015690762887e-07 5.000102665194201e-08 -9.31222614906619e-06
+                            angularVelocity 0.019171901714441778 1.512692364320234e-06 -0.00031338980120393237
+                          }
+                        }
+                        DEF Cloud_Motor Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                          }
+                          geometry Cylinder {
+                            height 0.02
+                            radius 0.055
+                          }
+                        }
+                      ]
+                      name "solid(5)"
+                      boundingObject USE Cloud_Motor
+                      physics Physics {
+                      }
+                      linearVelocity -4.033511344148792e-07 -1.5582224047455537e-07 -9.045873710951621e-06
+                      angularVelocity -9.067562918747414e-06 1.4647043976053906e-06 1.3533771486006178e-08
+                    }
+                  }
+                ]
+              }
+              Group {
+                children [
+                  Transform {
+                    translation -0.1 -0.06 -0.04
+                    children [
+                      Solid {
+                        children [
+                          DEF post Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 0.498039
+                            }
+                            geometry Box {
+                              size 0.004 0.1 0.03
+                            }
+                          }
+                        ]
+                        name "solid(15)"
+                        boundingObject USE post
+                        physics Physics {
+                        }
+                      }
+                    ]
+                  }
+                  Transform {
+                    translation 0.1 -0.06 -0.04
+                    children [
+                      Solid {
+                        children [
+                          DEF post Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 0.498039
+                            }
+                            geometry Box {
+                              size 0.004 0.1 0.03
+                            }
+                          }
+                        ]
+                        name "solid(1)"
+                        boundingObject USE post
+                        physics Physics {
+                        }
+                      }
+                    ]
+                  }
+                  Transform {
+                    translation 0.1 -0.06 0.04
+                    children [
+                      Solid {
+                        children [
+                          DEF post Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 0.498039
+                            }
+                            geometry Box {
+                              size 0.004 0.1 0.03
+                            }
+                          }
+                        ]
+                        name "solid(2)"
+                        boundingObject USE post
+                        physics Physics {
+                        }
+                      }
+                    ]
+                  }
+                  Transform {
+                    translation -0.1 -0.06 0.04
+                    children [
+                      Solid {
+                        children [
+                          DEF post Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 0.498039
+                            }
+                            geometry Box {
+                              size 0.004 0.1 0.03
+                            }
+                          }
+                        ]
+                        name "solid(3)"
+                        boundingObject USE post
+                        physics Physics {
+                        }
+                      }
+                    ]
+                  }
+                  Transform {
+                    translation -0.1 0 0
+                    children [
+                      Solid {
+                        translation 4.04052e-07 -0.11 0
+                        rotation 0 0 1 1.5708
+                        children [
+                          DEF disc Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 0.498039
+                            }
+                            geometry Cylinder {
+                              height 0.004
+                              radius 0.055
+                            }
+                          }
+                        ]
+                        boundingObject USE disc
+                        physics Physics {
+                        }
+                      }
+                    ]
+                  }
+                  Transform {
+                    translation 0.1 0 0
+                    children [
+                      Solid {
+                        translation 4.04052e-07 -0.11 0
+                        rotation 0 0 1 1.5708
+                        children [
+                          DEF disc Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 0.498039
+                            }
+                            geometry Cylinder {
+                              height 0.004
+                              radius 0.055
+                            }
+                          }
+                        ]
+                        name "solid(4)"
+                        boundingObject USE disc
+                        physics Physics {
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+              DEF Cloud_disc Shape {
+                appearance PBRAppearance {
+                  baseColor 0 0 1
+                }
+                geometry Cylinder {
+                  height 0.02
+                  radius 0.12
+                }
+              }
+            ]
+            boundingObject USE Cloud_disc
+            physics Physics {
+            }
+            linearVelocity -3.6790185993058065e-07 6.227251682790845e-08 -9.97116013424248e-06
+            angularVelocity -7.98150379564803e-06 1.4647042545559485e-06 -4.211948440951262e-09
+          }
+        }
+      ]
+    }
+    DEF Chaiss_Wheel Group {
+      children [
+        DistanceSensor {
+          translation -0.055 0 5.30718e-08
+          rotation 0 1 0 3.14159
+          children [
+            Transform {
+              rotation -0.577349935856137 0.577349935856137 0.5773509358560258 2.09439
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 1 0
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.01
+                    radius 0.01
+                  }
+                }
+              ]
+            }
+          ]
+          name "laser2"
+          lookupTable [
+            0 0 0
+            0.3 0.3 0
+          ]
+          aperture 0.005
+        }
+        DistanceSensor {
+          translation 0.055 0 0
+          children [
+            Transform {
+              rotation -0.577349935856137 0.577349935856137 0.5773509358560258 2.09439
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 1 0
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.01
+                    radius 0.01
+                  }
+                }
+              ]
+            }
+          ]
+          name "laser1"
+          lookupTable [
+            0 0 0
+            0.3 0.3 0
+          ]
+          aperture 0.005
+        }
+        DEF Intermediate_Driven_Wheel_2 HingeJoint {
+          jointParameters HingeJointParameters {
+            position 264.1831159859017
+            axis 0 1 0
+            anchor 0 0.08 -0.114
+          }
+          endPoint Solid {
+            translation 0 0.08 -0.114
+            rotation 0 1 0 0.2893330843590475
+            children [
+              DEF Intermediate_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.015
+                }
+              }
+            ]
+            name "solid(4)"
+            boundingObject USE Intermediate_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -5.343821756892096e-07 -8.352221045338805e-07 -1.0643825620579508e-05
+            angularVelocity -7.981634582264166e-06 3.569995257922325e-05 2.5912454455532585e-09
+          }
+        }
+        DEF Intermediate_Driven_Wheel_1 HingeJoint {
+          jointParameters HingeJointParameters {
+            position 174.75586960255643
+            axis 0 1 0
+            anchor 0 0.08 0.114
+          }
+          endPoint Solid {
+            translation 0 0.08 0.114
+            rotation 0 -1 0 1.1733189984719912
+            children [
+              DEF Intermediate_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.015
+                }
+              }
+            ]
+            name "solid(3)"
+            boundingObject USE Intermediate_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -2.0043113651720027e-07 9.745271669447365e-07 -1.0642713421475566e-05
+            angularVelocity -7.981493640246091e-06 -1.343599011179196e-05 -7.172996200044452e-09
+          }
+        }
+        DEF Doen_Driven_Wheel_2 HingeJoint {
+          jointParameters HingeJointParameters {
+            position 0.17686222884731523
+            axis 0 0 1
+            anchor 0 0.035 -0.06
+          }
+          endPoint Solid {
+            translation 0 0.035 -0.06
+            rotation 0.9922305112021798 0.08797348889176804 0.0879731657476931 1.5785997493301764
+            children [
+              DEF Doen_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.015
+                  radius 0.03
+                }
+              }
+            ]
+            name "solid(2)"
+            boundingObject USE Doen_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -4.5539923170801364e-07 -4.083360527148448e-07 -1.0535065043648288e-05
+            angularVelocity -7.945583283566943e-06 1.4678896639511126e-06 -1.604118524166571e-05
+          }
+        }
+        DEF Doen_Driven_Wheel_1 HingeJoint {
+          jointParameters HingeJointParameters {
+            position 0.16769299013499064
+            axis 0 0 1
+            anchor 0 0.035 0.06
+          }
+          device [
+            PositionSensor {
+              name "Encoder"
+            }
+          ]
+          endPoint Solid {
+            translation 0 0.035 0.06
+            rotation 0.9930106748775915 0.0834561284333301 0.08345582188241626 1.5778138072695376
+            children [
+              DEF Doen_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.015
+                  radius 0.03
+                }
+              }
+            ]
+            name "Driven_Pulley"
+            boundingObject USE Doen_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -2.796355520835137e-07 5.306846451142285e-07 -1.0534469157833635e-05
+            angularVelocity -7.959124414461638e-06 1.4667252499325548e-06 -1.01822911068851e-05
+          }
+        }
+        DEF On_Driven_Wheel_2 HingeJoint {
+          jointParameters HingeJointParameters {
+            position 14.999996189465872
+            axis 0 0 1
+            anchor 0 0.117 0.064
+          }
+          device [
+            RotationalMotor {
+              name "motor1"
+              maxVelocity 50
+            }
+          ]
+          endPoint Solid {
+            translation 0 0.117 0.064
+            rotation 0.2528221023718251 0.6841361059649388 0.6841335929973185 2.6463284179321973
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(5)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -2.743988404576379e-07 5.621140316607221e-07 -1.1186756686990586e-05
+            angularVelocity -7.981216917610383e-06 1.4647013785600968e-06 1.207059237694537e-09
+          }
+        }
+        DEF On_Driven_Wheel_1 HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.5906116788374358
+            axis 0 0 1
+            anchor 0 0.117 -0.064
+          }
+          endPoint Solid {
+            translation 0 0.117 -0.064
+            rotation 0.9186013545215516 -0.2794388350975136 -0.2794378086632434 1.655601198511358
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(6)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -4.608937613258233e-07 -4.395082352312069e-07 -1.1187390158708541e-05
+            angularVelocity -8.106413850053792e-06 1.4539374397581776e-06 5.416950126336747e-05
+          }
+        }
+        DEF On_Driven_Wheel_3 HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.5907740936166985
+            axis 0 0 1
+            anchor -0.13 0.117 -0.064
+          }
+          endPoint Solid {
+            translation -0.13 0.117 -0.064
+            rotation 0.9185595093119987 -0.27950760435542976 -0.27950657766855663 1.6556465889260017
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(7)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -4.613340146680782e-07 -4.4132262117366183e-07 -1.099689115769533e-05
+            angularVelocity -8.106383307129638e-06 1.4539378131253156e-06 5.4169504295817313e-05
+          }
+        }
+        DEF On_Driven_Wheel_4 HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.5904483886374899
+            axis 0 0 1
+            anchor 0.13 0.117 -0.064
+          }
+          endPoint Solid {
+            translation 0.13 0.117 -0.064
+            rotation 0.9186434166557572 -0.27936968912295845 -0.27936866294267576 1.6555555747010362
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(8)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -4.6045350750160427e-07 -4.376935365560228e-07 -1.137788896984831e-05
+            angularVelocity -8.106377231379589e-06 1.4539376826880303e-06 5.4169499400206975e-05
+          }
+        }
+        DEF On_Driven_Wheel_5 HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.59072437401511
+            axis 0 0 1
+            anchor -0.09 0.117 -0.064
+          }
+          endPoint Solid {
+            translation -0.09 0.117 -0.064
+            rotation 0.918572320182247 -0.27948655284384993 -0.27948552623430356 1.655632692493652
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(9)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -4.6119855213442425e-07 -4.407643485759834e-07 -1.1055506234285799e-05
+            angularVelocity -8.106395522894784e-06 1.4539376736784922e-06 5.416950332425735e-05
+          }
+        }
+        DEF On_Driven_Wheel_6 HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.59049898351784
+            axis 0 0 1
+            anchor 0.09 0.117 -0.064
+          }
+          endPoint Solid {
+            translation 0.09 0.117 -0.064
+            rotation 0.9186303847794716 -0.27939111440250625 -0.2793900881435235 1.6555697098671152
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(10)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -4.605889708239889e-07 -4.3825183149175336e-07 -1.1319273799019186e-05
+            angularVelocity -8.106346698866247e-06 1.4539377232739793e-06 5.4169500548329994e-05
+          }
+        }
+        DEF On_Driven_Wheel_3 HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.5581446906723947
+            axis 0 0 1
+            anchor -0.13 0.117 0.064
+          }
+          endPoint Solid {
+            translation -0.13 0.117 0.064
+            rotation 0.9267918331260789 -0.2655724159073377 -0.26557144040717645 1.6467531547873784
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(11)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -2.738527603648168e-07 5.602991934577814e-07 -1.0996255558440044e-05
+            angularVelocity -8.05823849616442e-06 1.4580771033181952e-06 3.3337623622860006e-05
+          }
+        }
+        DEF On_Driven_Wheel_4 HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.5578191267906629
+            axis 0 0 1
+            anchor 0.13 0.117 0.064
+          }
+          endPoint Solid {
+            translation 0.13 0.117 0.064
+            rotation 0.9268721776956639 -0.2654321794711018 -0.2654312044860559 1.6466667171456024
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(12)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -2.729722530170098e-07 5.6392870249841e-07 -1.137725324145116e-05
+            angularVelocity -8.058207988055016e-06 1.4580771148172545e-06 3.333761968230828e-05
+          }
+        }
+        DEF On_Driven_Wheel_5 HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.5580946039258022
+            axis 0 0 1
+            anchor -0.09 0.117 0.064
+          }
+          endPoint Solid {
+            translation -0.09 0.117 0.064
+            rotation 0.9268041961711208 -0.26555084259548556 -0.2655498671745672 1.6467398537182056
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(13)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -2.7371729701516404e-07 5.608577564501369e-07 -1.105487066365114e-05
+            angularVelocity -8.058247657264814e-06 1.4580771061311821e-06 3.333762316256966e-05
+          }
+        }
+        DEF On_Driven_Wheel_6 HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.5578692134608898
+            axis 0 0 1
+            anchor 0.09 0.117 0.064
+          }
+          endPoint Solid {
+            translation 0.09 0.117 0.064
+            rotation 0.9268598193559592 -0.2654537557951001 -0.26545278073080014 1.6466800122511525
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(14)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+            linearVelocity -2.731077154974909e-07 5.633703628865753e-07 -1.1318638349847686e-05
+            angularVelocity -8.058247671765202e-06 1.4580771198692275e-06 3.333761933087828e-05
+          }
+        }
+      ]
+    }
+    DEF Frame Transform {
+      children [
+        DEF Frame Group {
+          children [
+            Transform {
+              translation -0.11 0.13 0
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 0 0.498039
+                  }
+                  geometry Box {
+                    size 0.07 0.01 0.31
+                  }
+                }
+              ]
+            }
+            Transform {
+              translation 0.11 0.13 0
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 0 0.498039
+                  }
+                  geometry Box {
+                    size 0.07 0.01 0.31
+                  }
+                }
+              ]
+            }
+            Transform {
+              translation 0 0.13 0
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 0 0.498039
+                  }
+                  geometry Box {
+                    size 0.04 0.01 0.31
+                  }
+                }
+              ]
+            }
+            Transform {
+              translation 0 0.08 -0.14
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 0 0.498039
+                  }
+                  geometry Box {
+                    size 0.03 0.01 0.025
+                  }
+                }
+              ]
+            }
+            Transform {
+              translation 0 0.08 0.14
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 0 0.498039
+                  }
+                  geometry Box {
+                    size 0.03 0.01 0.025
+                  }
+                }
+              ]
+            }
+            Transform {
+              translation 0 0.065 -0.16
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 0 0.498039
+                  }
+                  geometry Box {
+                    size 0.3 0.15 0.02
+                  }
+                }
+              ]
+            }
+            Transform {
+              translation 0 0.065 0.16
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 0 0.498039
+                  }
+                  geometry Box {
+                    size 0.3 0.15 0.02
+                  }
+                }
+              ]
+            }
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 0 0.498039
+              }
+              geometry Box {
+                size 0.1 0.02 0.3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  boundingObject USE Frame
+  physics Physics {
+    density -1
+    mass 10
+  }
+  controller "Logic_Detection"
+  linearVelocity -3.6747365820722913e-07 6.242341434017363e-08 -1.0730138523564393e-05
+  angularVelocity -7.981506478422035e-06 1.4647023915016375e-06 -4.211952749599002e-09
+}
+Solid {
+  translation 0.0001484136328544394 1.2218810720043494 1.3844123855710459e-05
+  rotation 0.014264566529322679 0.9947893950594398 0.10094841068092397 -2.0463312920831056e-05
+  children [
+    DEF track Group {
+      children [
+        Transform {
+          translation 0 -1.2 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 1
+              }
+              geometry Box {
+                size 3.4 0.05 2.9
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 1.19 -0.57 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.666667 0 0
+              }
+              geometry Cylinder {
+                height 1.2
+                radius 0.1
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.19 -0.57 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.666667 0 0
+              }
+              geometry Cylinder {
+                height 1.2
+                radius 0.1
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0.666667 0
+          }
+          geometry Box {
+            size 2.6 0.05 0.2
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject USE track
+  physics Physics {
+    density -1
+    mass 20
+  }
+  linearVelocity 1.12198426188816e-09 1.0709110938478261e-09 3.2295925157476216e-08
+  angularVelocity -9.135608307240835e-09 -5.81204708936138e-11 2.1205157954073016e-10
+}
